@@ -1,16 +1,2 @@
 {% extends "base.html" %}
 {% block title %}Meals List{% endblock title %}
-
-{% block content %}
-    {% for i in meals %}
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{i.strMealThumb}}" class="card-img-top" alt="image"/>
-        <div class="card-body">
-          <h3 class="card-title">{{i.strMeal}}</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-{% endblock content%}
