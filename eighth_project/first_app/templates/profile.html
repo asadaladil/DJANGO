@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Profile Page{% endblock title %} 
+{% block body %}
+<h1>welcome to Profile</h1>
+<h1>Hello {{user}}</h1>
+
+<p><a href="{% url 'passchange' %}">change your password</a></p>
+<p><a href="{% url 'passchange2' %}">change your password without old password</a></p>
+<p><a href="{% url 'changedata' %}">update Profile</a></p>
+ <form method="post" action="" style="width:50%;margin:auto" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    {% for er in form.non_field_errors %}
+    <p class="bg-danger text-white p-3"><small>{{er}}</small></p>
+    {% endfor %}
+    {% endif %}
+    {% for fm in form %}
+    {{fm.label_tag}}
+    <br/>
+    {{fm}}
+    <br/>
+    {{fm.errors | striptags}}
+    <br/>
+    {% endfor %}
+    <br/>
+    <p><a href="{% url 'changedata' %}">update Profile</a></p>
+</form> 
+{% endblock body %}

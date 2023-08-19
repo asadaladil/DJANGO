@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Completed Work {% endblock title %} 
+{% block content %}
+<div style="width:80%;margin:auto;">
+    <h1>Here is the list of completed Tasks</h1>
+    {% if data %}
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in data  %}
+            {% if item.is_completed %}
+            <tr>
+                <th scope="row">{{item.id}} </th>
+                <td>{{item.title}} </td>
+                <td>{{item.description}} </td>
+                <td>Completed </td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <h3>No Completed Task</h3>
+      {% endif %}
+</div>
+{% endblock content %}
+

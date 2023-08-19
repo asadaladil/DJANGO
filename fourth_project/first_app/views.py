@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-def contact(request):
-    return render(request,'./first_app/index.html',{'courses': [
+def home(request):
+    return render(request,'./first_app/home.html',{'courses': [
         {
             'id':1,'course':'C','teacher': 'Rahim'
         },
@@ -15,5 +15,6 @@ def contact(request):
     ]
         
     })
-
+def about(request):
+    return render(request,'./first_app/about.html',{'author':'glenn maxwell'},)
 # Create your views here.

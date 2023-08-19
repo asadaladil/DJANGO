@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}FORMS{% endblock title %}
+{% block content %}
+<div style="width: 50%; height: 500px; margin: auto" class="pt-5">
+  <h3>Movie Rating Form</h3>
+<form method='POST' action="/first_app/about/">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name='username' >
+      <div id="nameHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputemail" class="form-label">Email Addess</label>
+      <input type="email" class="form-control" id="exampleInputemail" name='email'>
+    </div>
+    <select class="form-select" aria-label="Default select example" name="select">
+      <option selected>Open this select menu</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    {% comment %} <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> {% endcomment %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock content %}
